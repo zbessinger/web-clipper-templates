@@ -1,0 +1,12 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Proxmox Forum",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:.message-cell--main|map:item => ({test: .datetime}}|template:\"${test}\"|join|markdown}}\n",
+	"properties": [],
+	"triggers": [
+		"https://forum.proxmox.com/threads"
+	],
+	"noteNameFormat": "{{published|date:\"YYYY-MM-DD\"}} WEB {{title|safe_name}}",
+	"path": "webclips"
+}

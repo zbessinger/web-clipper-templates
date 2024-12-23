@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "nordnet.no blogg",
+	"behavior": "create",
+	"noteContentFormat": "\n#webclip/unread\n\n{{highlights|map: item => item.text|join:\"\\n\"|blockquote}}\n\n# {{title}}\n\n{{selectorHtml:article.post|first|remove_html:(\"#fa-morgenrapportene-sendt-pa-e-post,.author-below-and-content-below-wrap,iframe\")|markdown}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "url",
+			"value": "{{meta:property:og:url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{meta:property:og:title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{schema:[0]:@graph[5].author.name|split:\\\",\\\"|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:property:article:published_time}}",
+			"type": "datetime"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.nordnet.no/blogg"
+	],
+	"noteNameFormat": "{{meta:property:article:published_time|date:\"YYYY-MM-DD\"}} WEB {{meta:property:og:title|safe_name}}",
+	"path": "webclips"
+}

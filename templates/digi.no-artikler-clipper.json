@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "digi.no Artikler",
+	"behavior": "create",
+	"noteContentFormat": "\n#webclip/unread\n\n# {{title}}\n\nauthor:: {{selectorHtml:.items-start > div.flex-col|markdown}}\n\n> [!INFO]+ {{selectorHtml:.text-left > h1|markdown|strip_md|markdown}}\n{{selectorHtml:.text-left > h3|markdown|strip_md|blockquote}}\n{{selectorHtml:div[id=\"topImage\"] > img?src|image|blockquote}}\n{{selectorHtml:div[id=\"topImage\"] > img?alt|blockquote}}\n\n\n{{selectorHtml:.article|remove_html:(\".ad-label,.clear-both\")|markdown}}\n{{selectorHtml:.article|remove_html:(\".ad-label,.clear-both\")|markdown}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{meta:property:article:author|split:\\\",\\\"|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{published|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.digi.no/artikler"
+	],
+	"noteNameFormat": "{{published|date:\"YYYY-MM-DD\"}} WEB {{title|safe_name}}",
+	"path": "webclips"
+}

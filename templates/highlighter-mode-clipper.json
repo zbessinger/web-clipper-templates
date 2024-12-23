@@ -1,0 +1,10 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Highlighter mode",
+	"behavior": "append-specific",
+	"noteContentFormat": "{{content}}",
+	"properties": [],
+	"triggers": [],
+	"noteNameFormat": "{{published|date:\"YYYY-MM-DD\"}} WEB {{title|safe_name}}",
+	"path": "webclips"
+}
